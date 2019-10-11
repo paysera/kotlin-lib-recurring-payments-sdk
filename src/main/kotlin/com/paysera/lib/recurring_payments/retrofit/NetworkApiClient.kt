@@ -4,6 +4,7 @@ import com.paysera.lib.accounts.entities.transfers.Transfer
 import com.paysera.lib.common.entities.MetadataAwareResponse
 import com.paysera.lib.recurring_payments.entities.Recurrence
 import kotlinx.coroutines.Deferred
+import retrofit2.Response
 import retrofit2.http.*
 
 interface NetworkApiClient {
@@ -42,15 +43,18 @@ interface NetworkApiClient {
     ): Deferred<MetadataAwareResponse<Transfer>>
 
     @POST("recurrences/")
-    fun createRecurrence(): Deferred<Recurrence>
+    fun createRecurrence(
+        @Body recurrence: Recurrence
+    ): Deferred<Recurrence>
 
     @PUT("recurrences/{id}/")
     fun updateRecurrence(
-        @Path("id") id: Int?
+        @Path("id") id: Int,
+        @Body recurrence: Recurrence
     ): Deferred<Recurrence>
 
     @DELETE("recurrences/{id}/")
     fun cancelRecurrence(
-        @Path("id") id: Int?
-    ): Deferred<Void>
+        @Path("id") id: Int
+    ): Deferred<Response<Void>>
 }

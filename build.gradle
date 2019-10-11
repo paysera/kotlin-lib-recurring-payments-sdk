@@ -2,7 +2,7 @@ group 'kotlin-lib-recurring-payments-sdk'
 version '1.0.0'
 
 buildscript {
-    ext.kotlin_version = '1.3.41'
+    ext.kotlin_version = '1.3.50'
 
     repositories {
         mavenCentral()
@@ -36,7 +36,7 @@ dependencies {
     implementation('com.github.paysera:kotlin-lib-accounts-sdk:3.10.0') {
         exclude group: 'org.json', module: 'json'
     }
-    implementation('com.github.paysera:kotlin-lib-common-sdk:1.0.0-alpha') {
+    implementation('com.github.paysera:kotlin-lib-common-sdk:1.0.0') {
         exclude group: 'org.json', module: 'json'
     }
 

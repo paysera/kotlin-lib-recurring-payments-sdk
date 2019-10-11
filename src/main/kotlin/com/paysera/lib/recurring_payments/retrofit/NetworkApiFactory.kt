@@ -1,16 +1,15 @@
 package com.paysera.lib.recurring_payments.retrofit
 
 import com.paysera.lib.common.entities.ApiCredentials
-import com.paysera.lib.common.interfaces.TokenRefresher
-import com.paysera.lib.common.retrofit.BaseRefreshingApiFactory
+import com.paysera.lib.common.interfaces.TokenRefresherInterface
+import com.paysera.lib.common.retrofit.BaseApiFactory
 import com.paysera.lib.recurring_payments.clients.RecurringPaymentsApiClient
 
-class NetworkApiFactory(credentials: ApiCredentials) : BaseRefreshingApiFactory<RecurringPaymentsApiClient>(credentials) {
+class NetworkApiFactory(credentials: ApiCredentials) : BaseApiFactory<RecurringPaymentsApiClient>(credentials) {
 
-    override fun createClient(tokenRefresherInterface: TokenRefresher, baseUrl: String): RecurringPaymentsApiClient {
+    override fun createClient(baseUrl: String, tokenRefresher: TokenRefresherInterface?): RecurringPaymentsApiClient {
         return RecurringPaymentsApiClient(
-            createRetrofit(baseUrl).create(NetworkApiClient::class.java),
-            tokenRefresherInterface
+            createRetrofit(baseUrl, tokenRefresher).create(NetworkApiClient::class.java)
         )
     }
 }
