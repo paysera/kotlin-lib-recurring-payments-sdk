@@ -1,5 +1,7 @@
 package com.paysera.lib.recurring_payments.entities
 
+import com.google.gson.annotations.Expose
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
 import com.paysera.lib.accounts.entities.transfers.Transfer
 import java.util.*
@@ -13,6 +15,6 @@ data class Recurrence(
     var createdAt: Date? = null,
     @SerializedName("transfer_data")
     var transfer: Transfer,
-    var dayOfWeek: Int?,
-    var dayOfMonth: Int?
+    var dayOfWeek: Int? = null,
+    var dayOfMonth: Int? = null
 )
