@@ -42,12 +42,12 @@ interface NetworkApiClient {
         @Query("before") before: String?
     ): Deferred<MetadataAwareResponse<Transfer>>
 
-    @POST("recurrences/")
+    @POST("recurrences")
     fun createRecurrence(
         @Body recurrence: Recurrence
     ): Deferred<Recurrence>
 
-    @PUT("recurrences/{id}/")
+    @PUT("recurrences/{id}")
     fun updateRecurrence(
         @Path("id") id: String,
         @Body recurrence: Recurrence
