@@ -13,6 +13,6 @@ data class Recurrence(
     var createdAt: Date? = null,
     @SerializedName("transfer_data")
     var transfer: Transfer,
-    var dayOfWeek: Int? = null,
-    var dayOfMonth: Int? = null
+    var dayOfWeek: Int?,
+    var dayOfMonth: Int?
 )
