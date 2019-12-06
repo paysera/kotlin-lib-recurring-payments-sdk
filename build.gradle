@@ -33,7 +33,7 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
-    implementation('com.github.gilbertparreno:kotlin-lib-accounts-sdk:fca4147') {
+    implementation('com.github.paysera:kotlin-lib-accounts-sdk:4.2.0') {
         exclude group: 'org.json', module: 'json'
     }
 
