@@ -9,12 +9,12 @@ import retrofit2.http.*
 
 interface NetworkApiClient {
 
-    @GET("recurrences/{id}/")
+    @GET("recurrences/{id}")
     fun getRecurrence(
         @Path("id") id: Int
     ): Deferred<Recurrence>
 
-    @GET("recurrences/")
+    @GET("recurrences")
     fun getRecurrences(
         @Query("offset") offset: Int?,
         @Query("limit") limit: Int?,
@@ -31,7 +31,7 @@ interface NetworkApiClient {
         @Query("sender_account_number") senderAccountNumber: String?
     ): Deferred<MetadataAwareResponse<Recurrence>>
 
-    @GET("recurrences/{id}/transfers/")
+    @GET("recurrences/{id}/transfers")
     fun getRecurrenceTransfers(
         @Path("id") id: Int?,
         @Query("offset") offset: Int?,
@@ -42,18 +42,18 @@ interface NetworkApiClient {
         @Query("before") before: String?
     ): Deferred<MetadataAwareResponse<Transfer>>
 
-    @POST("recurrences/")
+    @POST("recurrences")
     fun createRecurrence(
         @Body recurrence: Recurrence
     ): Deferred<Recurrence>
 
-    @PUT("recurrences/{id}/")
+    @PUT("recurrences/{id}")
     fun updateRecurrence(
         @Path("id") id: Int,
         @Body recurrence: Recurrence
     ): Deferred<Recurrence>
 
-    @DELETE("recurrences/{id}/")
+    @DELETE("recurrences/{id}")
     fun cancelRecurrence(
         @Path("id") id: Int
     ): Deferred<Response<Void>>
