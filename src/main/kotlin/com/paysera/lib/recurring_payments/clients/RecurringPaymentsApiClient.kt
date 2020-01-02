@@ -3,7 +3,8 @@ package com.paysera.lib.recurring_payments.clients
 import com.paysera.lib.accounts.entities.transfers.Transfer
 import com.paysera.lib.common.entities.BaseFilter
 import com.paysera.lib.common.entities.MetadataAwareResponse
-import com.paysera.lib.common.interfaces.BaseApiClient
+import com.paysera.lib.common.retrofit.ApiRequestManager
+import com.paysera.lib.common.retrofit.BaseApiClient
 import com.paysera.lib.recurring_payments.entities.Recurrence
 import com.paysera.lib.recurring_payments.filters.RecurrenceFilter
 import com.paysera.lib.recurring_payments.retrofit.NetworkApiClient
@@ -11,8 +12,9 @@ import kotlinx.coroutines.*
 import retrofit2.Response
 
 class RecurringPaymentsApiClient(
-    private val networkApiClient: NetworkApiClient
-) : BaseApiClient {
+    private val networkApiClient: NetworkApiClient,
+    apiRequestManager: ApiRequestManager
+) : BaseApiClient(apiRequestManager) {
 
     fun getRecurrence(id: Int): Deferred<Recurrence> {
         return networkApiClient.getRecurrence(
