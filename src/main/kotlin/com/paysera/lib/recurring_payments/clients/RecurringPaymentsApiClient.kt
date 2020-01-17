@@ -13,10 +13,10 @@ import retrofit2.Response
 
 class RecurringPaymentsApiClient(
     private val networkApiClient: NetworkApiClient,
-    apiRequestManager: ApiRequestManager
+    private val apiRequestManager: ApiRequestManager
 ) : BaseApiClient(apiRequestManager) {
 
-    fun getRecurrence(id: Int): Deferred<Recurrence> {
+    fun getRecurrence(id: String): Deferred<Recurrence> {
         return networkApiClient.getRecurrence(
             id = id
         )
@@ -40,7 +40,7 @@ class RecurringPaymentsApiClient(
         )
     }
 
-    fun getRecurrenceTransfers(id: Int, filter: BaseFilter): Deferred<MetadataAwareResponse<Transfer>> {
+    fun getRecurrenceTransfers(id: String, filter: BaseFilter): Deferred<MetadataAwareResponse<Transfer>> {
         return networkApiClient.getRecurrenceTransfers(
             id = id,
             offset = filter.offset,
@@ -58,14 +58,14 @@ class RecurringPaymentsApiClient(
         )
     }
 
-    fun updateRecurrence(id: Int, recurrence: Recurrence): Deferred<Recurrence> {
+    fun updateRecurrence(id: String, recurrence: Recurrence): Deferred<Recurrence> {
         return networkApiClient.updateRecurrence(
             id = id,
             recurrence = recurrence
         )
     }
 
-    fun cancelRecurrence(id: Int): Deferred<Response<Void>> {
+    fun cancelRecurrence(id: String): Deferred<Response<Void>> {
         return networkApiClient.cancelRecurrence(
             id = id
         )
