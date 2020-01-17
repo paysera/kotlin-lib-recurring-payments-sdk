@@ -11,7 +11,7 @@ interface NetworkApiClient {
 
     @GET("recurrences/{id}")
     fun getRecurrence(
-        @Path("id") id: Int
+        @Path("id") id: String
     ): Deferred<Recurrence>
 
     @GET("recurrences")
@@ -22,7 +22,7 @@ interface NetworkApiClient {
         @Query("order_direction") orderDirection: String?,
         @Query("after") after: String?,
         @Query("before") before: String?,
-        @Query("id") id: Int?,
+        @Query("id") id: String?,
         @Query("recurrence_type") recurrenceType: String?,
         @Query("transfer_type") transferType: String?,
         @Query("day_of_week") dayOfWeek: Int?,
@@ -33,7 +33,7 @@ interface NetworkApiClient {
 
     @GET("recurrences/{id}/transfers")
     fun getRecurrenceTransfers(
-        @Path("id") id: Int?,
+        @Path("id") id: String?,
         @Query("offset") offset: Int?,
         @Query("limit") limit: Int?,
         @Query("order_by") orderBy: String?,
@@ -49,12 +49,12 @@ interface NetworkApiClient {
 
     @PUT("recurrences/{id}")
     fun updateRecurrence(
-        @Path("id") id: Int,
+        @Path("id") id: String,
         @Body recurrence: Recurrence
     ): Deferred<Recurrence>
 
     @DELETE("recurrences/{id}")
     fun cancelRecurrence(
-        @Path("id") id: Int
+        @Path("id") id: String
     ): Deferred<Response<Void>>
 }

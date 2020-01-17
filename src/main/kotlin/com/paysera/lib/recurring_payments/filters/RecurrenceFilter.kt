@@ -9,7 +9,7 @@ class RecurrenceFilter(
     orderDirection: String? = null,
     after: String? = null,
     before: String? = null,
-    val id: Int? = null,
+    val id: String? = null,
     val recurrenceType: String? = null,
     val transferType: String? = null,
     val dayOfWeek: Int? = null,

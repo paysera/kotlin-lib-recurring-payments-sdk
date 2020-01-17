@@ -5,7 +5,7 @@ import com.paysera.lib.accounts.entities.transfers.Transfer
 import java.util.*
 
 data class Recurrence(
-    var id: Int? = null,
+    var id: String? = null,
     var status: String? = null,
     @SerializedName("recurrence_type")
     var type: String,
