@@ -31,11 +31,11 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.3.1'
 
-    implementation('com.github.paysera:kotlin-lib-common-sdk:1.7.0') {
+    implementation('com.github.paysera:kotlin-lib-common-sdk:1.7.1') {
         exclude group: 'org.json', module: 'json'
     }
 
-    implementation('com.github.gilbertparreno:kotlin-lib-accounts-sdk:75d0867') {
+    implementation('com.github.gilbertparreno:kotlin-lib-accounts-sdk:7d6d977') {
         exclude group: 'org.json', module: 'json'
     }
 

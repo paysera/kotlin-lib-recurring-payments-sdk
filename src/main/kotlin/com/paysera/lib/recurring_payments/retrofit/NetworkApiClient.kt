@@ -28,7 +28,8 @@ interface NetworkApiClient {
         @Query("day_of_week") dayOfWeek: Int?,
         @Query("day_of_month") dayOfMonth: Int?,
         @Query("sender_covenantee_id") senderCovenanteeId: Int?,
-        @Query("sender_account_number") senderAccountNumber: String?
+        @Query("sender_account_number") senderAccountNumber: String?,
+        @Query("account_numbers[]") accountNumbers: List<String>?
     ): Deferred<MetadataAwareResponse<Recurrence>>
 
     @GET("recurrences/{id}/transfers")
@@ -57,4 +58,20 @@ interface NetworkApiClient {
     fun cancelRecurrence(
         @Path("id") id: String
     ): Deferred<Response<Void>>
+
+    @PUT("recurrences/{id}/activate")
+    fun activateRecurrence(
+        @Path("id") id: String
+    ) : Deferred<Recurrence>
+
+    @PUT("recurrences/{id}/deactivate")
+    fun deactivateRecurrence(
+        @Path("id") id: String
+    ) : Deferred<Recurrence>
+
+    @POST("recurrences/{recurrenceId}/transfers/{transferId}/repeat")
+    fun repeatPayment(
+        @Path("recurrenceId") recurrenceId: String,
+        @Path("transferId") transferId: String
+    ) : Deferred<Transfer>
 }
