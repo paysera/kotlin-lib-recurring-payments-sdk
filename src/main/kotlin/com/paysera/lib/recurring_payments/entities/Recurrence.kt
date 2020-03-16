@@ -15,5 +15,7 @@ data class Recurrence(
     @SerializedName("transfer_data")
     var transfer: Transfer,
     var dayOfWeek: Int? = null,
-    var dayOfMonth: Int? = null
+    var dayOfMonth: Int? = null,
+    @SerializedName("active")
+    var isActive: Boolean? = null
 )

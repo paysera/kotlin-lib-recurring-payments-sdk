@@ -35,7 +35,7 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
-    implementation('com.github.gilbertparreno:kotlin-lib-accounts-sdk:7d6d977') {
+    implementation('com.github.gilbertparreno:kotlin-lib-accounts-sdk:7f8c4cd') {
         exclude group: 'org.json', module: 'json'
     }
 
