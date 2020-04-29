@@ -5,6 +5,7 @@ import com.paysera.lib.accounts.entities.transfers.Transfer
 import java.util.*
 
 data class Recurrence(
+    @SerializedName("hash")
     var id: String? = null,
     var status: String? = null,
     @SerializedName("recurrence_type")
@@ -14,5 +15,7 @@ data class Recurrence(
     @SerializedName("transfer_data")
     var transfer: Transfer,
     var dayOfWeek: Int? = null,
-    var dayOfMonth: Int? = null
+    var dayOfMonth: Int? = null,
+    @SerializedName("active")
+    var isActive: Boolean? = null
 )

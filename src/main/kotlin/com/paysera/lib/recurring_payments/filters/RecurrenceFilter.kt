@@ -15,7 +15,8 @@ class RecurrenceFilter(
     val dayOfWeek: Int? = null,
     val dayOfMonth: Int? = null,
     val senderCovenanteeId: Int? = null,
-    val senderAccountNumber: String? = null
+    val senderAccountNumber: String? = null,
+    val accountNumbers: List<String>? = null
 ) : BaseFilter(
     offset = offset,
     limit = limit,

@@ -13,16 +13,20 @@ import retrofit2.Response
 
 class RecurringPaymentsApiClient(
     private val networkApiClient: NetworkApiClient,
-    private val apiRequestManager: ApiRequestManager
+    apiRequestManager: ApiRequestManager
 ) : BaseApiClient(apiRequestManager) {
 
-    fun getRecurrence(id: String): Deferred<Recurrence> {
+    fun getRecurrence(
+        id: String
+    ): Deferred<Recurrence> {
         return networkApiClient.getRecurrence(
             id = id
         )
     }
 
-    fun getRecurrences(filter: RecurrenceFilter): Deferred<MetadataAwareResponse<Recurrence>> {
+    fun getRecurrences(
+        filter: RecurrenceFilter
+    ): Deferred<MetadataAwareResponse<Recurrence>> {
         return networkApiClient.getRecurrences(
             offset = filter.offset,
             limit = filter.limit,
@@ -36,11 +40,15 @@ class RecurringPaymentsApiClient(
             dayOfWeek = filter.dayOfWeek,
             dayOfMonth = filter.dayOfMonth,
             senderCovenanteeId = filter.senderCovenanteeId,
-            senderAccountNumber = filter.senderAccountNumber
+            senderAccountNumber = filter.senderAccountNumber,
+            accountNumbers = filter.accountNumbers
         )
     }
 
-    fun getRecurrenceTransfers(id: String, filter: BaseFilter): Deferred<MetadataAwareResponse<Transfer>> {
+    fun getRecurrenceTransfers(
+        id: String,
+        filter: BaseFilter
+    ): Deferred<MetadataAwareResponse<Transfer>> {
         return networkApiClient.getRecurrenceTransfers(
             id = id,
             offset = filter.offset,
@@ -52,22 +60,55 @@ class RecurringPaymentsApiClient(
         )
     }
 
-    fun createRecurrence(recurrence: Recurrence): Deferred<Recurrence> {
+    fun createRecurrence(
+        recurrence: Recurrence
+    ): Deferred<Recurrence> {
         return networkApiClient.createRecurrence(
             recurrence = recurrence
         )
     }
 
-    fun updateRecurrence(id: String, recurrence: Recurrence): Deferred<Recurrence> {
+    fun updateRecurrence(
+        id: String,
+        recurrence: Recurrence
+    ): Deferred<Recurrence> {
         return networkApiClient.updateRecurrence(
             id = id,
             recurrence = recurrence
         )
     }
 
-    fun cancelRecurrence(id: String): Deferred<Response<Void>> {
+    fun cancelRecurrence(
+        id: String
+    ): Deferred<Response<Void>> {
         return networkApiClient.cancelRecurrence(
             id = id
+        )
+    }
+
+    fun activateRecurrence(
+        id: String
+    ): Deferred<Recurrence> {
+        return networkApiClient.activateRecurrence(
+            id
+        )
+    }
+
+    fun deactivateRecurrence(
+        id: String
+    ): Deferred<Recurrence> {
+        return networkApiClient.deactivateRecurrence(
+            id
+        )
+    }
+
+    fun repeatPayment(
+        recurrenceId: String,
+        transferId: String
+    ): Deferred<Transfer> {
+        return networkApiClient.repeatPayment(
+            recurrenceId,
+            transferId
         )
     }
 }
