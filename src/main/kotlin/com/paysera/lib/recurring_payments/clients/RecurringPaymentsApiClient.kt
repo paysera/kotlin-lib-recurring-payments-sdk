@@ -13,7 +13,7 @@ import retrofit2.Response
 
 class RecurringPaymentsApiClient(
     private val networkApiClient: NetworkApiClient,
-    private val apiRequestManager: ApiRequestManager
+    apiRequestManager: ApiRequestManager
 ) : BaseApiClient(apiRequestManager) {
 
     fun getRecurrence(
