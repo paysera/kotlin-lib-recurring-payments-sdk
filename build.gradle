@@ -35,11 +35,9 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
-    implementation('com.github.paysera:kotlin-lib-accounts-sdk:5.6.1') {
+    implementation('com.github.edgar-zigis:kotlin-lib-accounts-sdk:5.6.2-e') {
         exclude group: 'org.json', module: 'json'
     }
-
-    implementation 'com.google.code.gson:gson:2.8.5'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
