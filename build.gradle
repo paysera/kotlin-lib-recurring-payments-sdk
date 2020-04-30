@@ -35,7 +35,7 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
-    implementation('com.github.edgar-zigis:kotlin-lib-accounts-sdk:5.6.2-f') {
+    implementation('com.github.paysera:kotlin-lib-accounts-sdk:5.6.2') {
         exclude group: 'org.json', module: 'json'
     }
 
