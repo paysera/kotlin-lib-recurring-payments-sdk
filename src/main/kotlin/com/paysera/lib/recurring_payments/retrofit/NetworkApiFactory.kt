@@ -17,13 +17,11 @@ class NetworkApiFactory(
     timeout,
     httpLoggingInterceptorLevel
 ) {
+    override val baseUrl = "https://recurring-payments.paysera.com/recurrence/rest/v1/"
+    override val certifiedHosts = listOf("recurring-payments.paysera.com")
 
-    override fun createClient(
-        baseUrl: String,
-        tokenRefresher:
-        TokenRefresherInterface?
-    ): RecurringPaymentsApiClient {
-        createRetrofit(baseUrl, tokenRefresher).apply {
+    override fun createClient(tokenRefresher: TokenRefresherInterface?): RecurringPaymentsApiClient {
+        createRetrofit(tokenRefresher).apply {
             return RecurringPaymentsApiClient(
                 retrofit.create(NetworkApiClient::class.java),
                 apiRequestManager
