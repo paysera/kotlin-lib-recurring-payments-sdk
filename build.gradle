@@ -35,7 +35,7 @@ dependencies {
         exclude group: 'org.json', module: 'json'
     }
 
-    implementation('com.github.aurimas-zarskis:kotlin-lib-accounts-sdk:df87064') {
+    implementation('com.github.aurimas-zarskis:kotlin-lib-accounts-sdk:4837e56') {
         exclude group: 'org.json', module: 'json'
     }
 
