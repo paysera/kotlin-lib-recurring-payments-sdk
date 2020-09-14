@@ -8,21 +8,22 @@ import com.paysera.lib.recurring_payments.clients.RecurringPaymentsApiClient
 import okhttp3.logging.HttpLoggingInterceptor
 
 class NetworkApiFactory(
+    baseUrl: String,
     userAgent: String?,
     credentials: ApiCredentials,
+    certifiedHosts: List<String> = emptyList(),
     timeout: Long? = null,
     httpLoggingInterceptorLevel: HttpLoggingInterceptor.Level = HttpLoggingInterceptor.Level.BASIC,
-    errorLoggerInterface: ErrorLoggerInterface
+    errorLogger: ErrorLoggerInterface
 ) : BaseApiFactory<RecurringPaymentsApiClient>(
+    baseUrl,
     userAgent,
     credentials,
+    certifiedHosts,
     timeout,
     httpLoggingInterceptorLevel,
-    errorLoggerInterface
+    errorLogger
 ) {
-    override val baseUrl = "https://recurring-payments.paysera.com/recurrence/rest/v1/"
-    override val certifiedHosts = listOf("recurring-payments.paysera.com")
-
     override fun createClient(tokenRefresher: TokenRefresherInterface?): RecurringPaymentsApiClient {
         createRetrofit(tokenRefresher).apply {
             return RecurringPaymentsApiClient(
