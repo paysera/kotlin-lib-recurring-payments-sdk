@@ -13,7 +13,7 @@ object ApplicationDependencies {
     private const val jodaMoney = "org.joda:joda-money:${ApplicationDependencyVersions.jodaMoney}"
     private const val certificateTransparency = "com.appmattus.certificatetransparency:certificatetransparency:${ApplicationDependencyVersions.certificateTransparency}"
     private const val payseraCommonSdk = "com.paysera.lib:kotlin-lib-common-sdk:${ApplicationDependencyVersions.payseraCommonSdk}"
-    private const val payseraAccountsSdk = "com.github.paysera:kotlin-lib-accounts-sdk:${ApplicationDependencyVersions.payseraAccountsSdk}"
+    private const val payseraAccountsSdk = "com.paysera.lib:kotlin-lib-accounts-sdk:${ApplicationDependencyVersions.payseraAccountsSdk}"
 
     // testing
     const val junit = "junit:junit:${ApplicationDependencyVersions.junit}"
