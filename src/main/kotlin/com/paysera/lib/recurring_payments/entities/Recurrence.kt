@@ -17,5 +17,6 @@ data class Recurrence(
     var dayOfWeek: Int? = null,
     var dayOfMonth: Int? = null,
     @SerializedName("active")
-    var isActive: Boolean? = null
+    var isActive: Boolean? = null,
+    var nextProcessingDate: Date? = null
 )
