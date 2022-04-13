@@ -27,9 +27,6 @@ java {
 
 repositories {
     mavenCentral()
-
-    // TODO: remove when kotlin-lib-accounts-sdk moved to mavenCentral
-    maven(url = "https://jitpack.io")
 }
 
 dependencies {
