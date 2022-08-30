@@ -1,1 +1,1 @@
-# Kotlin Recurring Payments
+# Paysera Kotlin Recurring Payments SDK [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.paysera.lib/kotlin-lib-recurring-payments-sdk/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.paysera.lib/kotlin-lib-recurring-payments-sdk)
